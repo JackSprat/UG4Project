@@ -1,0 +1,18 @@
+package project.ug4.parser.elements;
+
+public enum RecordType {
+	HEADER,		BGNLIB,		LIBNAME, 		UNITS,		ENDLIB,		BGNSTR,		STRNAME, 	ENDSTR,			//0x00 - 0x07
+	BOUNDARY,	PATH,		SREF,			AREF,		TEXT,		LAYER,		DATATYPE,	WIDTH,			//0x08 - 0x0F
+	XY,			ENDEL,		SNAME,			COLROW,		TEXTNODE,	NODE,		TEXTTYPE,	PRESENTATION,	//0x10 - 0x17
+	SPACING,	STRING,		STRANS,			MAG,		ANGLE,		UINTEGER,	USTRING,	REFLIBS,		//0x18 - 0x1F
+	FONTS,		PATHTYPE,	GENERATIONS,	ATTRTABLE,	STYPTABLE,	STRTYPE,	ELFLAGS,	ELKEY,			//0x20 - 0x27
+	LINKTYPE,	LINKKEYS,	NODETYPE,		PROPATTR,	PROPVALUE,	BOX,		BOXTYPE,	PLEX,			//0x28 - 0x2F
+	BGNEXTN,	ENDEXTN,	TAPENUM,		TAPECODE,	STRCLASS,	RESERVED,	FORMAT,		MASK,			//0x30 - 0x37
+	ENDMASKS,	LIBDIRSIZE,	SRFNAME,		LIBSECUR,	INVALID;											//0x38 - 0x3B
+	
+	public static RecordType getRecordFromValue(int value) {
+		if (value >= 0 && value <= 0x3B)
+			return RecordType.values()[value];
+		return INVALID;
+	}
+}
