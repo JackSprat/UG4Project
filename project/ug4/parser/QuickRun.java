@@ -2,14 +2,16 @@ package project.ug4.parser;
 
 import java.io.FileNotFoundException;
 
-import project.ug4.parser.records.Record;
+import javax.swing.JFileChooser;
 
 public class QuickRun {
 
 	public static void main(String[] args) {
 		
 		try {
-			GDSParser p = new GDSParser("C:\\Users\\Administrator\\Desktop\\GDS3D_1.8\\gds\\example.gds");
+			JFileChooser fc = new JFileChooser();
+			fc.showOpenDialog(null);
+			GDSParser p = new GDSParser(fc.getSelectedFile());
 			p.parse();
 		} catch (FileNotFoundException e) {
 			e.printStackTrace();

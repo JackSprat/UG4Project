@@ -19,8 +19,8 @@ public class GDSParser {
 	private static List<GDSStructure> structures = new ArrayList<GDSStructure>();
 	
 	
-	public GDSParser(String f) throws FileNotFoundException {
-		gdsFile = new RandomAccessFile(new File(f), "r");
+	public GDSParser(File file) throws FileNotFoundException {
+		gdsFile = new RandomAccessFile(file, "r");
 	}
 	
 	public void parse() {
@@ -135,17 +135,6 @@ public class GDSParser {
 		} catch (IOException e) {
 			e.printStackTrace();
 			return null;
-		}
-		
-	}
-	
-	private static Record parseUntil(RecordType type) {
-		
-		while (true) {
-			
-			Record rec = parseRecord();
-			if (rec.record == type) { return rec;}
-			
 		}
 		
 	}
