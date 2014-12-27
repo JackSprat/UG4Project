@@ -5,7 +5,7 @@ import project.ug4.math.IntVec2D;
 import project.ug4.parser.GDSParser;
 import project.ug4.parser.records.Record;
 
-public class GDSBoundary {
+public class GDSBoundary extends GDSRenderable{
 
 	public short layer;
 	public BoundingAABB bounds;

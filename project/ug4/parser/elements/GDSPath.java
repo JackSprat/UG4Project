@@ -1,11 +1,17 @@
 package project.ug4.parser.elements;
 
+import org.lwjgl.opengl.GL11;
+import org.lwjgl.opengl.GL15;
+import org.lwjgl.opengl.GL20;
+
+import project.ug4.renderer.VertexData;
+
 import project.ug4.math.BoundingAABB;
 import project.ug4.math.IntVec2D;
 import project.ug4.parser.GDSParser;
 import project.ug4.parser.records.Record;
 
-public class GDSPath {
+public class GDSPath extends GDSRenderable {
 
 	public short layer;
 	public BoundingAABB bounds;

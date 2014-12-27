@@ -39,6 +39,7 @@ public class RendererClient extends Thread {
 			GL11.glDrawArrays(GL11.GL_TRIANGLES, 0, 3);
 			GL20.glDisableVertexAttribArray(0);
 			Display.update();
+			
 		}
 		
 		Display.destroy();
