@@ -1,11 +1,5 @@
 package project.ug4.parser.elements;
 
-import org.lwjgl.opengl.GL11;
-import org.lwjgl.opengl.GL15;
-import org.lwjgl.opengl.GL20;
-
-import project.ug4.renderer.VertexData;
-
 import project.ug4.math.BoundingAABB;
 import project.ug4.math.IntVec2D;
 import project.ug4.parser.GDSParser;
@@ -21,7 +15,7 @@ public class GDSPath extends GDSRenderable {
 		
 		while (true) {
 			
-			Record rec = GDSParser.parseRecord();
+			Record rec = GDSParser.parser.parseRecord();
 			
 			switch (rec.record) {
 				case LAYER:
@@ -43,8 +37,20 @@ public class GDSPath extends GDSRenderable {
 	
 	public IntVec2D[] getPoints() {
 		
-		Record r = GDSParser.parseRecord(pathDataIndex);
+		Record r = GDSParser.parser.parseRecord(pathDataIndex);
 		return r.getIntVec2D();
+		
+	}
+
+	@Override
+	public void render() {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void load() {
+		// TODO Auto-generated method stub
 		
 	}
 

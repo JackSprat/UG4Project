@@ -10,12 +10,13 @@ public class GDSBoundary extends GDSRenderable{
 	public short layer;
 	public BoundingAABB bounds;
 	private long pathDataIndex;
+	private IntVec2D[] points;
 	
 	public GDSBoundary() {
 		
 		while (true) {
 			
-			Record rec = GDSParser.parseRecord();
+			Record rec = GDSParser.parser.parseRecord();
 			
 			switch (rec.record) {
 				case LAYER:
@@ -40,9 +41,19 @@ public class GDSBoundary extends GDSRenderable{
 	
 	public IntVec2D[] getPoints() {
 		
-		Record r = GDSParser.parseRecord(pathDataIndex);
+		Record r = GDSParser.parser.parseRecord(pathDataIndex);
 		return r.getIntVec2D();
 		
+	}
+
+	@Override
+	public void render() {
+				
+	}
+
+	@Override
+	public void load() {
+		points = GDSParser.parser.parseRecord(pathDataIndex).getIntVec2D();
 	}
 	
 }

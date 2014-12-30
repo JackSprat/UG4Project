@@ -20,7 +20,7 @@ public class GDSArrayReference {
 		
 		while (true) {
 			
-			Record rec = GDSParser.parseRecord();
+			Record rec = GDSParser.parser.parseRecord();
 			
 			switch (rec.record) {
 				case SNAME:

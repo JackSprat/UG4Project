@@ -3,14 +3,16 @@ package project.ug4.parser.elements;
 import java.util.ArrayList;
 import java.util.List;
 
+import project.ug4.math.BoundingAABB;
 import project.ug4.parser.GDSParser;
 import project.ug4.parser.records.Record;
+import project.ug4.renderer.RenderState;
 
-public class GDSStructure {
+public class GDSStructure extends GDSRenderable {
 
 	public String name;
-	//public AABB boundingBox;
-	public boolean finalised = false;
+	public BoundingAABB boundingBox;
+	public RenderState state = RenderState.DISABLED;
 	public List<GDSStructureReference> srefs = new ArrayList<GDSStructureReference>();
 	public List<GDSArrayReference> arefs = new ArrayList<GDSArrayReference>();
 	public List<GDSBoundary> boundaries = new ArrayList<GDSBoundary>();
@@ -19,7 +21,8 @@ public class GDSStructure {
 	public GDSStructure() {
 		
 		while (true) {
-			Record rec = GDSParser.parseRecord();
+			
+			Record rec = GDSParser.parser.parseRecord();
 			
 			switch (rec.record) {
 				case ENDSTR:
@@ -44,9 +47,26 @@ public class GDSStructure {
 		
 	}
 	
-	public void render() {
+	@Override
+	public void render() {		
 		
+		for (GDSBoundary b : boundaries) {
+			b.render();
+		}
+		for (GDSPath p : paths) {
+			p.render();
+		}
 		
+	}
+
+	@Override
+	public void load() {
+		for (GDSBoundary b : boundaries) {
+			b.load();
+		}
+		for (GDSPath p : paths) {
+			p.load();
+		}
 		
 	}
 	
