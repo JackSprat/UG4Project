@@ -1,4 +1,4 @@
-package project.ug4.parser.elements;
+package project.ug4.parser;
 
 public enum RecordType {
 	HEADER,		BGNLIB,		LIBNAME, 		UNITS,		ENDLIB,		BGNSTR,		STRNAME, 	ENDSTR,			//0x00 - 0x07

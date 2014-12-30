@@ -1,4 +1,4 @@
-package project.ug4.parser.elements;
+package project.ug4.parser;
 
 public enum DataType {
 	
