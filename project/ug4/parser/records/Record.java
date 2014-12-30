@@ -5,6 +5,7 @@ import java.nio.ByteBuffer;
 import java.util.Arrays;
 
 import project.ug4.math.IntVec2D;
+import project.ug4.parser.RecordType;
 import project.ug4.parser.elements.*;
 
 public class Record {

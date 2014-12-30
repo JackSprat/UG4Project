@@ -12,7 +12,6 @@ public class QuickRun {
 			JFileChooser fc = new JFileChooser();
 			fc.showOpenDialog(null);
 			GDSParser p = new GDSParser(fc.getSelectedFile());
-			p.parse();
 		} catch (FileNotFoundException e) {
 			e.printStackTrace();
 		}
