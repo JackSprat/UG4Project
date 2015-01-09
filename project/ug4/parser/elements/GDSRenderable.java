@@ -16,5 +16,6 @@ public abstract class GDSRenderable {
 	
 	public abstract void render();
 	public abstract void load();
+	public abstract void unload();
 	
 }

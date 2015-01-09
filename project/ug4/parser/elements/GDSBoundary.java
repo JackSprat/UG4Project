@@ -1,5 +1,7 @@
 package project.ug4.parser.elements;
 
+import org.lwjgl.opengl.GL11;
+
 import project.ug4.math.BoundingAABB;
 import project.ug4.math.IntVec2D;
 import project.ug4.parser.GDSParser;
@@ -48,7 +50,9 @@ public class GDSBoundary extends GDSRenderable{
 
 	@Override
 	public void render() {
-				
+		
+		GL11.glVertexPointer(size, stride, pointer);
+		
 	}
 
 	@Override
